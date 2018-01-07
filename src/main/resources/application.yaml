@@ -1,0 +1,16 @@
+
+# We want to keep this number low in order to keep the number of nashorn instances low, but clearly we still want some concurrency.
+# There is a nashorn instance per thread (its not thread safe) and each needs to be warmed up to serve requests in a reasonable amount of time.
+# There is also a significant impact on memory usage when maintaining warm nashorn engines across multiple threads..
+server:
+  tomcat:
+    max-threads: 3
+
+---
+
+spring:
+  profiles: local
+
+server:
+  tomcat:
+    max-threads: 1
