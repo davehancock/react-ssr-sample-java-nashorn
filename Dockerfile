@@ -1,4 +1,4 @@
-FROM openjdk:9-jre-slim
+FROM openjdk:11-jre-slim
 
 COPY ./build/libs/app.jar /app/dist/app.jar
 WORKDIR /app/dist

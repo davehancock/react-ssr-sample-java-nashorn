@@ -6,8 +6,8 @@ plugins {
 
 jar.baseName = 'app'
 
-sourceCompatibility = 1.9
-targetCompatibility = 1.9
+sourceCompatibility = 11
+targetCompatibility = 11
 
 repositories {
     jcenter()
@@ -17,10 +17,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework:spring-context-support'
     compile 'com.google.guava:guava:22.0'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.2.1'
 }
 
 bootRun {
