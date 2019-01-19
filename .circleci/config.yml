@@ -1,9 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/react-ssr-sample-java
+    working_directory: ~/react-ssr-sample-java-nashorn
     docker:
-      - image: circleci/openjdk:9.0-jdk-node-browsers
+      - image: circleci/openjdk:11.0-jdk-node-browsers
 
     steps:
       - checkout
@@ -20,10 +20,6 @@ jobs:
       - run:
           name: Build Frontend
           command: yarn build
-
-      - run:
-          name: Package Frontend
-          command: yarn package
 
       - run:
           name: Build Backend
@@ -45,16 +41,16 @@ jobs:
             - 'build/libs/app.jar'
 
   deploy:
-    working_directory: ~/react-ssr-sample-java
+    working_directory: ~/react-ssr-sample-java-nashorn
     machine: true
 
     steps:
       - attach_workspace:
-          at: ~/react-ssr-sample-java
+          at: ~/react-ssr-sample-java-nashorn
 
       - run:
           name: Docker Build
-          command: docker build -t daves125125/react-ssr-sample-java .
+          command: docker build -t daves125125/react-ssr-sample-java-nashorn .
 
       - run:
           name: Docker Login
@@ -62,7 +58,7 @@ jobs:
 
       - run:
           name: Docker Push
-          command: docker push daves125125/react-ssr-sample-java
+          command: docker push daves125125/react-ssr-sample-java-nashorn
 
 workflows:
   version: 2

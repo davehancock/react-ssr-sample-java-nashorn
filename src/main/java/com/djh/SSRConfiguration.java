@@ -23,7 +23,7 @@ public class SSRConfiguration {
         configurer.setEngineName("nashorn");
         configurer.setScripts(
                 "public/nashorn-polyfill.js",
-                "public/static/js/server.js"
+                "public/server.js"
         );
         configurer.setRenderFunction("render");
         configurer.setSharedEngine(false);

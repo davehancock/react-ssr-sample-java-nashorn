@@ -1,6 +1,6 @@
-# react-ssr-sample-java
+# react-ssr-sample-java-nashorn
 
-[![CircleCI](https://circleci.com/gh/daves125125/react-ssr-sample-java.svg?style=svg&circle-token=74232108964cd9f2ad9b4f00cf530880f65bc483)](https://circleci.com/gh/daves125125/react-ssr-sample-java)
+[![CircleCI](https://circleci.com/gh/daves125125/react-ssr-sample-java-nashorn.svg?style=svg&circle-token=74232108964cd9f2ad9b4f00cf530880f65bc483)](https://circleci.com/gh/daves125125/react-ssr-sample-java-nashorn)
 
 This project demonstrates rendering Javascript code on the server side using Java. 
 
@@ -29,7 +29,7 @@ This sample is heavily inspired by:
 This sample has been packaged as a docker container and can be ran by executing: 
 
 ```
-docker run -p8080:8080 daves125125/react-ssr-sample-java
+docker run -p8080:8080 daves125125/react-ssr-sample-java-nashorn
 ```
 
 Navigate to `localhost:8080/` to see the sample running.
@@ -40,13 +40,13 @@ NOTE: Initial load times of pages will be extremely slow - see the [Initial serv
 ## Build / Run from source
 
 ```
-yarn install && yarn build && yarn package && ./gradlew clean bootRun
+yarn install && yarn build && ./gradlew clean bootRun
 ```
 
 Or, via Docker:
 
 ```
-yarn install && yarn build && yarn package
+yarn install && yarn build
 ./gradlew clean build && docker build -t test .
 docker run -p8080:8080 test
 ```
@@ -113,5 +113,4 @@ from "compiling" the JS.
 - Warm-up is a real problem, can we warm a pool of nashorn instances up?
 - Investigate J2V8 for faster initial render times?
 - Could use netty and non blocking IO, async response with handoff to a dedicated executor with nashorn?
-- Properly strip down webpack config and ejected create-react-app to barebones needed
 - SSR and Streaming nodes w/ React 16
